@@ -1,0 +1,90 @@
+﻿<ui:Page x:Class="LibraryManager.Pages.CustomersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:LibraryManager.Pages"
+      xmlns:ui="http://schemas.modernwpf.com/2019"
+      xmlns:libraryManager="clr-namespace:LibraryManager"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CustomersPage">
+
+    <ui:SimpleStackPanel>
+        <ListView x:Name="CustomersListView" ItemsSource="{Binding Customers}" HorizontalContentAlignment="Stretch">
+            <ListView.DataContext>
+                <libraryManager:DemoData/>
+            </ListView.DataContext>
+            <ListView.ItemTemplate>
+                <DataTemplate x:Name="DoubleLineDataTemplate">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Orientation="Horizontal" Height="64">
+                            <Ellipse Height="48" Width="48" VerticalAlignment="Center">
+                                <Ellipse.Fill>
+                                    <!--<ImageBrush />-->
+                                    <LinearGradientBrush >
+                                        <GradientStop Color="#FF00C5FF" Offset="0.16"/>
+                                        <GradientStop Color="#FF00A2FF" Offset="0.817"/>
+                                    </LinearGradientBrush>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBlock Text="{Binding FullName}"/>
+                                <TextBlock Text="{Binding BirthDate, StringFormat=d}"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <ui:SymbolIcon Grid.Column="2" Symbol="Edit" Margin="20,0,10,0" />
+                    </Grid>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <!--<ListViewItem>
+                <ui:SimpleStackPanel Orientation="Horizontal" Height="64">
+                        <Ellipse Height="48" Width="48" VerticalAlignment="Center">
+                            <Ellipse.Fill>
+                                DimGray
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <ui:SimpleStackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
+                            <TextBlock Text="Karel Novák"/>
+                            <TextBlock Text="01/11/1993"/>
+                        </ui:SimpleStackPanel>
+                    <ui:SymbolIcon Symbol="Edit" />
+                </ui:SimpleStackPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <ui:SimpleStackPanel Orientation="Horizontal" Height="64">
+                    <Ellipse Height="48" Width="48" VerticalAlignment="Center">
+                        <Ellipse.Fill>
+                            DimGray
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <ui:SimpleStackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
+                        <TextBlock Text="Karel Novák"/>
+                        <TextBlock Text="01/11/1993"/>
+                    </ui:SimpleStackPanel>
+                    <ui:SymbolIcon Symbol="Edit" />
+                </ui:SimpleStackPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <ui:SimpleStackPanel Orientation="Horizontal" Height="64">
+                    <Ellipse Height="48" Width="48" VerticalAlignment="Center">
+                        <Ellipse.Fill>
+                            DimGray
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <ui:SimpleStackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0">
+                        <TextBlock Text="Karel Novák"/>
+                        <TextBlock Text="01/11/1993"/>
+                    </ui:SimpleStackPanel>
+                    <ui:SymbolIcon Symbol="Edit" />
+                </ui:SimpleStackPanel>
+            </ListViewItem>-->
+        </ListView>
+    </ui:SimpleStackPanel>
+</ui:Page>
